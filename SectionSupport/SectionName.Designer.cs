@@ -100,6 +100,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxPrefix);
             this.Name = "SectionName";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SectionName";
             this.ResumeLayout(false);
             this.PerformLayout();

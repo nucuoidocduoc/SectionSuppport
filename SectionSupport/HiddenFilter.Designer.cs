@@ -64,10 +64,6 @@
             // cbxFilterType
             // 
             this.cbxFilterType.FormattingEnabled = true;
-            this.cbxFilterType.Items.AddRange(new object[] {
-            "Start with",
-            "Contain",
-            "End with"});
             this.cbxFilterType.Location = new System.Drawing.Point(96, 75);
             this.cbxFilterType.Name = "cbxFilterType";
             this.cbxFilterType.Size = new System.Drawing.Size(121, 21);
@@ -81,6 +77,7 @@
             this.btnOk.TabIndex = 4;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
@@ -90,6 +87,7 @@
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // HiddenFilter
             // 
@@ -103,7 +101,9 @@
             this.Controls.Add(this.txtContent);
             this.Controls.Add(this.label1);
             this.Name = "HiddenFilter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HiddenFilter";
+            this.Load += new System.EventHandler(this.HiddenFilter_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

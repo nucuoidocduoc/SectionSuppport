@@ -23,9 +23,9 @@ namespace SectionSupport
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            _implementRename.Invoke(new SectionNameDetail() { Prefix = tbxPrefix.Text, Suffiexs = tbxSuffixes.Text });
             this.DialogResult = DialogResult.OK;
             this.Close();
-            _implementRename.Invoke(new SectionNameDetail() { Prefix = tbxPrefix.Text, Suffiexs = tbxSuffixes.Text });
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

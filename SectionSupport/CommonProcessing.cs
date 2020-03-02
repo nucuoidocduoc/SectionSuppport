@@ -40,7 +40,7 @@ namespace SectionSupport
             if (param == null || !param.HasValue) {
                 return string.Empty;
             }
-            return param.AsValueString() ?? string.Empty;
+            return param.AsString() ?? string.Empty;
         }
     }
 }

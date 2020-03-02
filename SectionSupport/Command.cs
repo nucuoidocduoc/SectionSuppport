@@ -15,6 +15,7 @@ namespace SectionSupport
     {
         private Document _document;
         private List<Element> _sections;
+        private SectionNameDetail _sectionNameDetail;
 
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -25,9 +26,9 @@ namespace SectionSupport
                 TaskDialog.Show("Lỗi", "Không có Section trong các element đã chọn");
                 return Result.Cancelled;
             }
-            SectionName sectionName = new SectionName(RenameSection);
+            SectionName sectionName = new SectionName(SendSectionName);
             if (sectionName.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
-                TaskDialog.Show("Section", "Đổi tên Section thành công");
+                RenameSection(_sectionNameDetail);
             }
 
             return Result.Succeeded;
@@ -50,13 +51,20 @@ namespace SectionSupport
                         }
                     }
                     t.Commit();
+                    TaskDialog.Show("Section", "Đổi tên Section thành công");
                 }
-                catch (Exception) {
+                catch (Exception ex) {
                     if (t.HasStarted()) {
                         t.RollBack();
                     }
+                    TaskDialog.Show("Error", ex.StackTrace);
                 }
             }
+        }
+
+        private void SendSectionName(SectionNameDetail sectionNameDetail)
+        {
+            _sectionNameDetail = sectionNameDetail;
         }
     }
 }
