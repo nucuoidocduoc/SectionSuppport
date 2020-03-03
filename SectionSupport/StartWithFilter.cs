@@ -23,7 +23,12 @@ namespace SectionSupport
 
         public bool IsSatisfy(Element element)
         {
-            return CommonProcessing.GetViewName(element).StartsWith(_condition.Content);
+            if (_condition.IsReverse) {
+                return !CommonProcessing.GetViewName(element).StartsWith(_condition.Content);
+            }
+            else {
+                return CommonProcessing.GetViewName(element).StartsWith(_condition.Content);
+            }
         }
     }
 }

@@ -10,5 +10,6 @@ namespace SectionSupport
     {
         public string Content { get; set; }
         public FilterType FilterType { get; set; }
+        public bool IsReverse { get; set; }
     }
 }

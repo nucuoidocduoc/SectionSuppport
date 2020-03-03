@@ -22,7 +22,7 @@ namespace SectionSupport
         {
             _uiDoc = commandData.Application.ActiveUIDocument;
             _document = _uiDoc.Document;
-            _sections = new FilteredElementCollector(_document, _uiDoc.ActiveView.Id).OfCategory(BuiltInCategory.OST_Viewers).ToList();
+            _sections = new FilteredElementCollector(_document, _uiDoc.ActiveView.Id).OfCategory(BuiltInCategory.OST_Viewers).Where(e => CommonProcessing.IsSection(e)).ToList();
 
             HiddenFilter sectionName = new HiddenFilter(SendCondition);
             if (sectionName.ShowDialog() == System.Windows.Forms.DialogResult.OK) {

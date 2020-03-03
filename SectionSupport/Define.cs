@@ -10,6 +10,6 @@ namespace SectionSupport
     {
         public const string StartWith = "Start With";
         public const string EndWith = "End With";
-        public const string Contain = "Contain With";
+        public const string Contain = "Contain";
     }
 }

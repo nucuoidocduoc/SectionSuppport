@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SectionSupport
 {
-    internal class CommonProcessing
+    public static class CommonProcessing
     {
         public static List<Element> GetSelectedElementsIsSection(UIDocument uiDoc)
         {
@@ -32,6 +32,18 @@ namespace SectionSupport
             catch (Exception ex) {
                 return new List<Element>();
             }
+        }
+
+        public static bool IsSection(Element element)
+        {
+            var family = element.LookupParameter("Family");
+            if (family != null) {
+                var familyName = family.AsValueString();
+                if (!string.IsNullOrEmpty(familyName) && familyName.Equals("Section")) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static string GetViewName(Element element)

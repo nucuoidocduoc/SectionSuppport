@@ -33,7 +33,7 @@ namespace SectionSupport
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            _implementHidden.Invoke(new ConditionHidden() { Content = txtContent.Text, FilterType = GetFilterType() });
+            _implementHidden.Invoke(new ConditionHidden() { Content = txtContent.Text, FilterType = GetFilterType(), IsReverse = checkBox1.Checked });
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
